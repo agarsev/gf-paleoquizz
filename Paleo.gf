@@ -5,7 +5,7 @@ flags startcat = S;
 cat
     S;
 
-    Time; Period;
+    Time; TimePoint; Period;
     Thing; Group;
     Action; Property;
 
@@ -19,10 +19,11 @@ fun
 
     -- Times
     During: Period -> Time;
-    At: Period -> Time;
-    Interval: Time -> Time -> Time;
-    Start: Period -> Period;
-    End: Period -> Period;
+    At: TimePoint -> Time;
+    Interval: TimePoint -> TimePoint -> Time;
+    Point: Period -> TimePoint;
+    Start: Period -> TimePoint;
+    End: Period -> TimePoint;
 
     Carboniferous, Cretaceous, Permian, Triassic, Cambrian, Silurian, Present : Period;
 

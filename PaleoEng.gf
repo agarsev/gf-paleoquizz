@@ -1,7 +1,11 @@
 concrete PaleoEng of Paleo = {
 
 lincat
-    S, Time, Period, Thing, Group, Action, Property = Str;
+    S = Str;
+
+    Time, TimePoint, Period = Str;
+    Thing, Group = Str;
+    Action, Property = Str;
 
 lin
     TimeFocus thing action time = thing ++ action ++ time;
@@ -9,8 +13,9 @@ lin
     Attribution thing property = thing ++ "is" ++ property;
 
     During period = "during" ++ period;
-    At period = "at" ++ period;
+    At time = "at" ++ time;
     Interval beg end = "from" ++ beg ++ "to" ++ end;
+    Point period = period;
     Start period = "the beggining of" ++ period;
     End period = "the end of" ++ period;
 
