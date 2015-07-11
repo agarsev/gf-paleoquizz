@@ -1,16 +1,16 @@
 Reptiles evolved from amphibians during the Carboniferous
-Mollusks are divided into three main groups
-All living crinoids are passive suspension feeders
-Fossils bryozoans are useful environmental indicators
-The fossil record of arthropods is relatively poor
+#Mollusks are divided into three main groups
+#All living crinoids are passive suspension feeders
+#Fossils bryozoans are useful environmental indicators
+#The fossil record of arthropods is relatively poor
 Dinosaurs became extinct at the end of the Cretaceous
 The Permian witnessed the diversification of the early amniotes
-The Triassic is also known as the Age of the Reptiles
+#The Triassic is also known as the Age of the Reptiles
 The first placental mammals appeared at the beginning of the Cretaceous period
-The Rugose are an extinct order of corals
+#The Rugose are an extinct order of corals
 Mammals experienced a significant adaptive radiation about 500 million years
 Brachiopods are known in the fossil record from the early Cambrian to the Recent
-Leaves are the most commonly preserved plant remains
+#Leaves are the most commonly preserved plant remains
 Modern bony fishes appeared in the Silurian
 
 Concepts

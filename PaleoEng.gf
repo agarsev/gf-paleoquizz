@@ -4,7 +4,7 @@ lincat
     S = Str;
 
     Time, TimePoint, Period = Str;
-    Thing, Group = Str;
+    Group = Str;
     Action = TimePosition => Str;
 
 lin
@@ -26,13 +26,9 @@ lin
     Triassic = "the Triassic";
     Cambrian = "the Cambrian";
     Silurian = "the Silurian";
-    Recent = "Recent";
+    Quaternary = "the Quaternary";
 
-    -- Things
-    Extant group = "all living" ++ group;
-    Fossil group = "fossil" ++ group;
-    FossilRecord group = "the fossil record of" ++ group;
-
+    -- Groups
     Reptiles = "Reptiles";
     Dinosaurs = "Dinosaurs";
     Rugose = "Rugose";
@@ -48,7 +44,7 @@ lin
         Focus => "appeared"
     };
     BeInTheRecord = table {
-        Topic => "WRONG!";
+        Topic => "?";
         Focus => "are known in the fossil record"
     };
     BecomeExtinct = table {
@@ -59,11 +55,6 @@ lin
         Topic => "witnessed a significant adaptive radiation of";
         Focus => "experienced a significant adaptive radiation"
     };
-
-    -- Properties
-    ExtinctOrderOf sub sup = sub ++ "are an extinct order of" ++ sup;
-    PassiveSuspensionFeeder g = g ++ "are passive suspension feeders";
-    UsefulEnvironmentalIndicator g = g ++ "are useful environmental indicators";
 
 param
     TimePosition = Topic | Focus;

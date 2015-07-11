@@ -22,20 +22,13 @@ fun
     Start: Period -> TimePoint;
     End: Period -> TimePoint;
 
-    Carboniferous, Cretaceous, Permian, Triassic, Cambrian, Silurian, Recent : Period;
+    Carboniferous, Cretaceous, Permian, Triassic, Cambrian, Silurian, Quaternary : Period;
 
-    -- Things
-    Extant: Group -> Thing;
-    Fossil: Group -> Thing;
-    FossilRecord: Group -> Thing;
-
+    -- Groups
     Reptiles, Dinosaurs, Rugose, Mammals : Group;
 
     -- Actions
     EvolveFrom: Group -> Action;
     Appear, BeInTheRecord, BecomeExtinct, Diversify: Action;
 
-    -- Properties
-    ExtinctOrderOf: Group -> Group -> S;
-    PassiveSuspensionFeeder, UsefulEnvironmentalIndicator: Thing -> S;
 }
