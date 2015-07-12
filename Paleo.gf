@@ -6,7 +6,7 @@ cat
     S;
 
     Time; TimePoint; Period;
-    Thing; Group;
+    Group;
     Action;
 
 fun

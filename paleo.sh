@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# options
+
+DB_FILE=facts.db
+
 # Run GF in background
 coproc gf 2>/dev/null
 GFI=${COPROC[1]}
@@ -23,6 +27,16 @@ print_prompt() {
     printf "> "
 }
 
+get_semtree() {
+    IFS=$'\n' semtree=($(echo $1 | perl -e '$/=\1;
+    while(<>) {
+        if( /\(/ ) { $p++; }
+        if( /\)/ ) { $p--; }
+        if( / / and $p==0) { print "\n"; }
+        else { print; }
+    }'))
+}
+
 # START
 
 flush
@@ -37,16 +51,33 @@ while read line; do
     args=${line#*[ ]}
 
     case $comm in
-    add | añadir)
+    add)
+        ok=false
         gf "p \"$args\""
         get_output
         if ! [[ "$output" =~ "The parser failed" ]]; then
-            echo "english: $output"
+            ok=true
+            get_semtree "$output"
         fi
         get_output
         if ! [[ "$output" =~ "The parser failed" ]]; then
-            echo "spanish: $output"
+            ok=true
+            get_semtree "$output"
         fi
+        if $ok; then
+            echo -e "\e[92mOK\e[0m";
+            if [[ ${semtree[0]} == "TimeFocus" ]]; then
+                echo "${semtree[2]};${semtree[1]};${semtree[3]}" >>$DB_FILE
+            else
+                echo "${semtree[2]};${semtree[3]};${semtree[1]}" >>$DB_FILE
+            fi
+        else
+            echo -e "\e[91mERROR\e[0m";
+        fi
+    ;;
+    get)
+        sem=$(sort -R $DB_FILE | head -1)
+        echo $sem
     ;;
     esac
 
