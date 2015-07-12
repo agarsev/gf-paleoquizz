@@ -75,9 +75,25 @@ while read line; do
             echo -e "\e[91mERROR\e[0m";
         fi
     ;;
-    get)
-        sem=$(sort -R $DB_FILE | head -1)
-        echo $sem
+    quiz)
+        action=$(sort -R $DB_FILE | head -1)
+        IFS=';' sem=($action)
+        gf "lin -lang=Spa TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}"
+        get_output
+        flush
+        echo "a) $output"
+        gf "gr TimeFocus ${sem[1]} ${sem[0]} ? | lin -lang=Spa"
+        get_output
+        flush
+        echo "b) $output"
+        gf "gr TimeFocus ${sem[1]} ${sem[0]} ? | lin -lang=Spa"
+        get_output
+        flush
+        echo "c) $output"
+        gf "gr TimeFocus ${sem[1]} ${sem[0]} ? | lin -lang=Spa"
+        get_output
+        flush
+        echo "d) $output"
     ;;
     esac
 
