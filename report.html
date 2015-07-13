@@ -49,12 +49,20 @@ English.</p>
 tree. If this process succeeds, the AST is then stored (in a slightly different
 format) in the fact database for later perusal.</p>
 <p>For example:</p>
-<pre><code>&gt; add the early amniotes diversified during the Permian
+<pre><code>&gt; add los mamuts se extinguieron a el final de el Pleistoceno
 OK
-&gt; add los dinosaurios se extinguieron a el final de el Cretácico
+&gt; add Trilobites are known in the fossil record from the Cambrian to the Permian
 OK
-&gt; add los dinosaurios se extinguieron hace 65 millones de años
+&gt; add the end of the Permian witnessed the extinction of Trilobites
+OK
+&gt; add los amonites existen en el registro fósil desde el Devónico a el Cretácico
+OK
+&gt; add Fishes appeared in the Cambrian
 ERROR: sentence not understood
+&gt; add Fishes appeared during the Cambrian
+OK
+&gt; add Mammals experienced a significant adaptive radiation at the beginning of the Paleocene
+OK
 &gt; 
 </code></pre>
 <h2>Quizzing</h2>
@@ -69,8 +77,8 @@ respectively). It does not matter what language the facts were input in, since
 only the abstract meaning is stored, and so more languages could be added to
 cater to a multilingual audience while still introducing facts in the chosen
 language of the instructor.</p>
-<p>All questions relate to a single fact, and provide a random listing of four
-options, one of them the correct answer, and three other ones where the last
+<p>All questions relate to a single fact, and provide a random listing of three to four
+options, one of them the correct answer, and some other ones where the last
 concept has been swapped for a randomly generated, linguistically appropriate
 choice made by the GF cli.</p>
 <p>The Paleontology Grammar supports two types of structures, one with the period
@@ -80,46 +88,46 @@ the sentence as presented by the quiz may not be the same every time.</p>
 <p>For the moment, only simple questions where the focus of the statement is
 randomized are used. If more difficulty was needed, the code could be changed to
 randomize more parts of the sentence, or provide more options.</p>
-<p>An example:</p>
+<p>Some examples:</p>
 <pre><code>&gt; quiz Eng
 Choose the correct option:
-1) the early amniotes diversified during the Permian
-2) the early amniotes diversified during the Miocene
-3) the early amniotes diversified at the Carboniferous
-4) the early amniotes diversified during the Paleocene
+1) Fishes appeared at the beginning of the Carboniferous
+2) Fishes appeared from the beginning of the Oligocene to the Recent
+3) Fishes appeared during the Cambrian
+4) Fishes appeared from the Jurassic to the Permian
+: 3
+Choose the correct option:
+1) the beginning of the Paleocene witnessed a significant adaptive radiation of Fishes
+2) the beginning of the Paleocene witnessed a significant adaptive radiation of flowering plants
+3) the beginning of the Paleocene witnessed a significant adaptive radiation of Mammals
+: 3
+Choose the correct option:
+1) Mammoths became extinct during the Pleistocene
+2) Mammoths became extinct from the Recent to the end of the Pleistocene
+3) Mammoths became extinct at the end of the Pleistocene
+4) Mammoths became extinct during the Cretaceous
+: 3
+Choose the correct option:
+1) placental mammals appeared during the Cretaceous
+2) placental mammals appeared at the beginning of the Cretaceous
+3) placental mammals appeared from the Precambrian to the Recent
+: 2
+Choose the correct option:
+1) the Permian witnessed the diversification of Brachiopods
+2) the Permian witnessed the diversification of Reptiles
+3) the Permian witnessed the diversification of the early amniotes
+4) the Permian witnessed the diversification of modern bony fishes
 : 4
-Choose the correct option:
-1) placental mammals appeared during the Pliocene
-2) placental mammals appeared during the Triassic
-3) placental mammals appeared at the end of the Triassic
-4) placental mammals appeared at the beginning of the Cretaceous
+points: 4/5
+
+&gt; quiz Spa
+Elige la opción correcta:
+1) los braquiópodos existen en el registro fósil durante el Cámbrico
+2) los braquiópodos existen en el registro fósil a el final de el Mioceno
+3) los braquiópodos existen en el registro fósil durante el Precámbrico
+4) los braquiópodos existen en el registro fósil desde el Cámbrico a la
+actualidad
 : 4
-Choose the correct option:
-1) Reptiles evolved from Amphibians at the Carboniferous
-2) Reptiles evolved from Amphibians during the Carboniferous
-3) Reptiles evolved from Amphibians during the Precambrian
-4) Reptiles evolved from Amphibians from the Devonian to the end of the Carboniferous
-: 2
-Choose the correct option:
-1) the period from the Cambrian to the Quaternary has fossiles of Brachiopods
-2) the period from the Cambrian to the Quaternary has fossiles of Fishes
-3) the period from the Cambrian to the Quaternary has fossiles of Amphibians
-4) the period from the Cambrian to the Quaternary has fossiles of the early amniotes
-: 1
-Choose the correct option:
-1) the end of the Cretaceous witnessed the extinction of Mollusks
-2) the end of the Cretaceous witnessed the extinction of Dinosaurs
-3) the end of the Cretaceous witnessed the extinction of modern bony fishes
-4) the end of the Cretaceous witnessed the extinction of Amphibians
-: 2
-Choose the correct option:
-1) modern bony fishes appeared at the Cambrian
-2) modern bony fishes appeared during the Silurian
-3) modern bony fishes appeared from the end of the Jurassic to the beginning of the Quaternary
-4) modern bony fishes appeared at the beginning of the Pliocene
-: 2
-points: 5/6
-&gt;
 </code></pre>
 <h2>Paleontology Grammar</h2>
 <p>The paleontology grammar used for this coursework consists of three files, one
