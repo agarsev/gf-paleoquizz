@@ -69,10 +69,36 @@ For example:
 
 Quizzing
 --------
+After the fact database is built, the user can ask to be given a quiz. This quiz
+is a simple single-choice test with only one question, that is choosing the
+correct fact between the different options. The test is inspired by the
+translation quiz used as an example for GF, and it uses its random generation
+capabilities.
+
+Since the Paleontology Grammar supports two languages (English and Spanish) the
+user can choose which language to be asked the questions in (Eng or Spa,
+respectively). It does not matter what language the facts were input in, since
+only the abstract meaning is stored, and so more languages could be added to
+cater to a multilingual audience while still introducing facts in the chosen
+language of the instructor.
+
+All questions relate to a single fact, and provide a random listing of four
+options, one of them the correct answer, and three other ones where the last
+concept has been swapped for a randomly generated, linguistically appropriate
+choice made by the GF cli.
+
+The Paleontology Grammar supports two types of structures, one with the period
+as the topic and the group as the focus (see section Paleontology Grammar below)
+and the other with the two interchanged. That means that the word ordering of
+the sentence as presented by the quiz may not be the same every time.
+
+For the moment, only simple questions where the focus of the statement is
+randomized are used. If more difficulty was needed, the code could be changed to
+randomize more parts of the sentence, or provide more options.
 
 An example:
 
-    > quiz
+    > quiz Eng
     Choose the correct option:
     1) the early amniotes diversified during the Permian
     2) the early amniotes diversified during the Miocene
@@ -114,6 +140,47 @@ An example:
 
 Paleontology Grammar
 --------------------
+The paleontology grammar used for this coursework consists of three files, one
+for the abstract syntax and one each for the concrete syntax of English and Spanish.
 
-Caveats
--------
+* Abstract Syntax *
+
+The facts we are interested in for the paleontology quiz are shaped in a very
+determinate way. They are facts about events that happened at some point in
+life's history, and involved a determinate group of living beings. Thus, we can
+identify three main components in our facts:
+
+1. The event (called Action in the grammar)
+2. The group of living beings, usually a clade but can also be a qualified term
+   (linguistically, a nound with an adjective)
+3. The time when the event happened.
+
+The Abstract syntax also allows two shapes for the sentences as explained above
+in the previous section.  It is a matter of argument whether the topic/focus
+division of natural language should belong to concrete or abstract syntax, but
+we choose the latter since for this coursework it makes it easier to generate
+the random sentences. It can also be argued that the distinction is actually
+semantic, though in our discussion of plain facts for the quiz it is not really
+relevant.
+
+The actions and groups don't present further complexity, apart from some actions
+(events) being actually functions that can take other elements as arguments. To
+further improve the quiz, questions could be made to randomize these embedded
+arguments as well. An example of this is the event "EvolveFrom", which requires
+a group to evolve from.
+
+Time, however, is a bit more interesting. Apart from the number of different
+periods in geological time, some more precision must be allowed. For example,
+ranges have to be accomodated, and specific points such as the beggining of, and
+the end of, have to also be taken into account. Not every category can be part
+of an interval, and some of them cannot stand alone either. The end result can
+be seen near the top of the abstract grammar.
+
+Limitations
+-----------
+- common sense
+- numbers
+- spanish contractions, punctuation
+
+<meta charset="UTF-8"></meta>
+<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
