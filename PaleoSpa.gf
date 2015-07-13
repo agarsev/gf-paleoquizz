@@ -26,8 +26,8 @@ lin
         Topic => "el periodo desde" ++ beg ++ "hasta" ++ end;
         Focus => "desde" ++ beg ++ "a" ++ end
     };
-    Start period = "comienzos de" ++ period;
-    End period = "finales de" ++ period;
+    Start period = "el comienzo de" ++ period;
+    End period = "el final de" ++ period;
 
     Precambrian = "el Precámbrico";
     Cambrian = "el Cámbrico";
