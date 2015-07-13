@@ -117,7 +117,7 @@ while read line; do
             echo $prompt
             IFS=';' sem=($action)
             answers=''
-            if [[ $(( $RANDOM % 2 )) == 1 ]]; then
+            if [[ $(( $RANDOM % 2 )) == 0 ]]; then
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
@@ -129,7 +129,7 @@ while read line; do
                 add_correct_answer $lang TimeTopic ${sem[2]} ${sem[0]} ${sem[1]}
             fi
             answers=$(sort -u <<<$answers | sort -R)
-            echo $answers | paste <(echo -n $'1)\n2)\n3)\n4)') - -d' '
+            echo $answers | nl -nln -w1 -s') '
             IFS=$'\n' answers=($answers)
             echo -n ": "
             read -r ans
