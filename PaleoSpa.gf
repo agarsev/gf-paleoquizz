@@ -48,9 +48,19 @@ lin
 
     -- Groups
     Reptiles = "los reptiles";
+    Amphibians = "los amfibios";
+    Mollusks = "los moluscos";
+    Crinoids = "los crinoides";
+    Bryozoans = "los briozoos";
+    Arthropods = "los artrópodos";
     Dinosaurs = "los dinosaurios";
-    Rugose = "los rugose";
     Mammals = "los mamíferos";
+    Brachiopods = "los braquiópodos";
+    Fishes = "los peces";
+
+    EarlyAmniotes = "los primeros amniotas";
+    PlacentalMammals = "los mamíferos placentados";
+    ModernBonyFishes = "los peces óseos modernos";
 
     -- Actions
     EvolveFrom group = table {

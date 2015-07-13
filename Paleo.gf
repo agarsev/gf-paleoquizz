@@ -25,7 +25,9 @@ fun
     Triassic, Jurassic, Cretaceous, Paleocene, Eocene, Oligocene, Miocene, Pliocene, Quaternary : Period;
 
     -- Groups
-    Reptiles, Dinosaurs, Rugose, Mammals : Group;
+    Reptiles, Amphibians, Mollusks, Crinoids, Bryozoans: Group;
+    Arthropods, Dinosaurs, Mammals, Brachiopods, Fishes: Group;
+    EarlyAmniotes, PlacentalMammals, ModernBonyFishes: Group;
 
     -- Actions
     EvolveFrom: Group -> Action;

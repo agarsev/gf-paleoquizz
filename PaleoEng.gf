@@ -48,9 +48,19 @@ lin
 
     -- Groups
     Reptiles = "Reptiles";
+    Amphibians = "Amphibians";
+    Mollusks = "Mollusks";
+    Crinoids = "Crinoids";
+    Bryozoans = "Bryozoans";
+    Arthropods = "Arthropods";
     Dinosaurs = "Dinosaurs";
-    Rugose = "Rugose";
     Mammals = "Mammals";
+    Brachiopods = "Brachiopods";
+    Fishes = "Fishes";
+
+    EarlyAmniotes = "early amniotes";
+    PlacentalMammals = "placental mammals";
+    ModernBonyFishes = "modern bony fishes";
 
     -- Actions
     EvolveFrom group = table {
