@@ -12,11 +12,10 @@ cat
 fun
     -- Time sentences
     TimeFocus: Group -> Action -> Time -> S; -- the topic is the thing and the focus the time
-    TimeTopic: Period -> Action -> Group -> S; -- the topic is the time and the focus the thing
+    TimeTopic: Time -> Action -> Group -> S; -- the topic is the time and the focus the thing
 
     -- Times
     During: Period -> Time;
-    In: Period -> Time;
     At: TimePoint -> Time;
     Interval: TimePoint -> TimePoint -> Time;
     Start: Period -> TimePoint;

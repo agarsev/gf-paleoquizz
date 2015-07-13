@@ -3,22 +3,31 @@ concrete PaleoSpa of Paleo = {
 lincat
     S = Str;
 
-    Time, TimePoint, Period = Str;
+    Time = TimePosition => Str;
+    TimePoint, Period = Str;
     Group = Str;
     Action = TimePosition => Str;
 
 lin
     -- Sentences with time: thing x action x time
-    TimeFocus thing action time = thing ++ action ! Focus ++ time;
-    TimeTopic time action thing = time ++ action ! Topic ++ thing;
+    TimeFocus thing action time = thing ++ action ! Focus ++ time ! Focus;
+    TimeTopic time action thing = time ! Topic ++ action ! Topic ++ thing;
 
     -- Times
-    During period = "durante" ++ period;
-    In period = "en" ++ period;
-    At time = "en" ++ time;
-    Interval beg end = "desde" ++ beg ++ "a" ++ end;
-    Start period = "a comienzos de" ++ period;
-    End period = "a finales de" ++ period;
+    During period = table {
+        Topic => period;
+        Focus => "durante" ++ period
+    };
+    At time = table {
+        Topic => time;
+        Focus => "a" ++ time
+    };
+    Interval beg end = table {
+        Topic => "el periodo desde" ++ beg ++ "hasta" ++ end;
+        Focus => "desde" ++ beg ++ "a" ++ end
+    };
+    Start period = "comienzos de" ++ period;
+    End period = "finales de" ++ period;
 
     Carboniferous = "el Carbonífero";
     Cretaceous = "el Cretácico";
@@ -44,7 +53,7 @@ lin
         Focus => "aparecieron"
     };
     BeInTheRecord = table {
-        Topic => "?";
+        Topic => "tiene registro fósil de";
         Focus => "existen en el registro fósil"
     };
     BecomeExtinct = table {

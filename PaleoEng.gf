@@ -3,20 +3,29 @@ concrete PaleoEng of Paleo = {
 lincat
     S = Str;
 
-    Time, TimePoint, Period = Str;
+    Time = TimePosition => Str;
+    TimePoint, Period = Str;
     Group = Str;
     Action = TimePosition => Str;
 
 lin
     -- Sentences with time: thing x action x time
-    TimeFocus thing action time = thing ++ action ! Focus ++ time;
-    TimeTopic time action thing = time ++ action ! Topic ++ thing;
+    TimeFocus thing action time = thing ++ action ! Focus ++ time ! Focus;
+    TimeTopic time action thing = time ! Topic ++ action ! Topic ++ thing;
 
     -- Times
-    During period = "during" ++ period;
-    In period = "in" ++ period;
-    At time = "at" ++ time;
-    Interval beg end = "from" ++ beg ++ "to" ++ end;
+    During period = table {
+        Topic => period;
+        Focus => "during" ++ period
+    };
+    At timepoint = table {
+        Topic => timepoint;
+        Focus => "at" ++ timepoint
+    };
+    Interval beg end = table {
+        Topic => "the period from" ++ beg ++ "to" ++ end;
+        Focus => "from" ++ beg ++ "to" ++ end
+    };
     Start period = "the beggining of" ++ period;
     End period = "the end of" ++ period;
 
@@ -44,7 +53,7 @@ lin
         Focus => "appeared"
     };
     BeInTheRecord = table {
-        Topic => "?";
+        Topic => "has fossiles of";
         Focus => "are known in the fossil record"
     };
     BecomeExtinct = table {
