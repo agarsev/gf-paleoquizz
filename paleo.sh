@@ -3,6 +3,7 @@
 # options
 
 DB_FILE=facts.db
+MAX_QUESTIONS=10
 
 # Run GF in background
 coproc gf 2>/dev/null
@@ -44,6 +45,14 @@ add_random_answer() {
     answers=$answers$'\n'$output
 }
 
+set_correct_answer() {
+    gf "lin -lang=$1 $2 $3 $4 $5"
+    get_output
+    flush
+    correct=$output
+    answers=$correct
+}
+
 # START
 
 flush
@@ -58,6 +67,11 @@ while read line; do
     args=${line#*[ ]}
 
     case $comm in
+    help)
+        echo "Commands:"
+        echo -e "\tadd 'sentence': add sentence to the database of facts"
+        echo -e "\tquiz Eng|Spa: take a quiz on paleontological facts in the chosen language"
+    ;;
     add)
         ok=false
         gf "p \"$args\""
@@ -84,6 +98,7 @@ while read line; do
     ;;
     quiz)
         points=0
+        total=0
         if [[ $args == 'Spa' ]]; then
             lang=Spa
             prompt="Elige la opción correcta:"
@@ -91,19 +106,23 @@ while read line; do
             lang=Eng
             prompt="Choose the correct option:"
         fi
-        facts=$(sort -R $DB_FILE | head -10)
+        facts=$(sort -R $DB_FILE | head -$MAX_QUESTIONS)
         IFS=$'\n'
         for action in $facts; do
+            total=$((total+1))
             echo $prompt
             IFS=';' sem=($action)
-            gf "lin -lang=$lang TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}"
-            get_output
-            flush
-            correct=$output
-            answers=$correct
-            add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
-            add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
-            add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+            if [[ $(( $RANDOM % 2 )) == 1 ]]; then
+                set_correct_answer $lang TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}
+                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+            else
+                set_correct_answer $lang TimeTopic ${sem[2]} ${sem[0]} ${sem[1]}
+                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+            fi
             answers=$(sort -R <<<$answers)
             echo $answers | paste <(echo -n $'1)\n2)\n3)\n4)') - -d' '
             IFS=$'\n' answers=($answers)
@@ -113,7 +132,7 @@ while read line; do
                 points=$((points+1))
             fi
         done
-        echo "points: $points"
+        echo "points: $points/$total"
     ;;
     esac
 
