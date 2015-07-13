@@ -1,0 +1,6 @@
+BecomeExtinct;Dinosaurs;(At (End Cretaceous))
+(EvolveFrom Amphibians);Reptiles;(During Carboniferous)
+Diversify;EarlyAmniotes;(During Permian)
+Appear;PlacentalMammals;(At (Start Cretaceous))
+Appear;ModernBonyFishes;(During Silurian)
+BeInTheRecord;Brachiopods;(Interval (UpgradeP Cambrian) (UpgradeP Quaternary))
