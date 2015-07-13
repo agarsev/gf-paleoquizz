@@ -121,20 +121,14 @@ while read line; do
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
-                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
-                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
-                answers=$(sort -u <<<$answers | sort -R | head -3)
                 add_correct_answer $lang TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}
             else
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
-                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
-                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
-                answers=$(sort -u <<<$answers | sort -R | head -3)
                 add_correct_answer $lang TimeTopic ${sem[2]} ${sem[0]} ${sem[1]}
             fi
-            answers=$(sort -R <<<$answers)
+            answers=$(sort -u <<<$answers | sort -R)
             echo $answers | paste <(echo -n $'1)\n2)\n3)\n4)') - -d' '
             IFS=$'\n' answers=($answers)
             echo -n ": "
