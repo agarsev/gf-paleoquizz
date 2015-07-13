@@ -9,7 +9,7 @@ lincat
     Action = TimePosition => Str;
 
 lin
-    -- Sentences with time: thing x action x time
+    -- Sentences
     TimeFocus thing action time = thing ++ action ! Focus ++ time ! Focus;
     TimeTopic time action thing = time ! Topic ++ action ! Topic ++ thing;
 
@@ -31,6 +31,8 @@ lin
     UpgradeP p = p;
     UpgradeT t = t;
 
+    Recent = "the Recent";
+
     Precambrian = "the Precambrian";
     Cambrian = "the Cambrian";
     Ordovician = "the Ordovician";
@@ -46,6 +48,7 @@ lin
     Oligocene = "the Oligocene";
     Miocene = "the Miocene";
     Pliocene = "the Pliocene";
+    Pleistocene = "the Pleistocene";
     Quaternary = "the Quaternary";
 
     -- Groups
@@ -59,10 +62,14 @@ lin
     Mammals = "Mammals";
     Brachiopods = "Brachiopods";
     Fishes = "Fishes";
+    Trilobites = "Trilobites";
+    Ammonites = "Ammonites";
+    Mammoths = "Mammoths";
 
     EarlyAmniotes = "the early amniotes";
     PlacentalMammals = "placental mammals";
     ModernBonyFishes = "modern bony fishes";
+    FloweringPlants = "flowering plants";
 
     -- Actions
     EvolveFrom group = table {
@@ -80,6 +87,10 @@ lin
     BecomeExtinct = table {
         Topic => "witnessed the extinction of";
         Focus => "became extinct"
+    };
+    BecomeAbundant = table {
+        Topic => "witnessed an abundancy of";
+        Focus => "became abundant"
     };
     Radiate = table {
         Topic => "witnessed a significant adaptive radiation of";

@@ -10,7 +10,7 @@ cat
     Action;
 
 fun
-    -- Time sentences
+    -- Sentences
     TimeFocus: Group -> Action -> Time -> S; -- the topic is the thing and the focus the time
     TimeTopic: Time -> Action -> Group -> S; -- the topic is the time and the focus the thing
 
@@ -23,16 +23,18 @@ fun
     UpgradeP: Period -> TimeBound;
     UpgradeT: TimePoint -> TimeBound;
 
+    Recent: TimeBound;
+
     Precambrian, Cambrian, Ordovician, Silurian, Devonian, Carboniferous, Permian: Period;
-    Triassic, Jurassic, Cretaceous, Paleocene, Eocene, Oligocene, Miocene, Pliocene, Quaternary : Period;
+    Triassic, Jurassic, Cretaceous, Paleocene, Eocene, Oligocene, Miocene, Pliocene, Pleistocene: Period;
 
     -- Groups
-    Reptiles, Amphibians, Mollusks, Crinoids, Bryozoans: Group;
-    Arthropods, Dinosaurs, Mammals, Brachiopods, Fishes: Group;
-    EarlyAmniotes, PlacentalMammals, ModernBonyFishes: Group;
+    Reptiles, Amphibians, Mollusks, Crinoids, Trilobites, Ammonites, Bryozoans: Group;
+    Arthropods, Dinosaurs, Mammals, Brachiopods, Fishes, Mammoths: Group;
+    EarlyAmniotes, PlacentalMammals, ModernBonyFishes, FloweringPlants: Group;
 
     -- Actions
     EvolveFrom: Group -> Action;
-    Appear, BeInTheRecord, BecomeExtinct, Radiate, Diversify: Action;
+    Appear, BeInTheRecord, BecomeExtinct, BecomeAbundant, Radiate, Diversify: Action;
 
 }

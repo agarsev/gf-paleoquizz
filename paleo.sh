@@ -3,7 +3,7 @@
 # options
 
 DB_FILE=facts.db
-MAX_QUESTIONS=10
+MAX_QUESTIONS=5
 
 # Run GF in background
 coproc gf 2>/dev/null
