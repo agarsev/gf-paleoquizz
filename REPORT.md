@@ -6,6 +6,8 @@ HLST master, LCT Programme, University of Malta
 Antonio F. G. Sevilla <antonio@garciasevilla.com>  
 13 July 2015
 
+---
+
 About
 -----
 This coursework is a quiz on paleontology facts such as might be used by a
@@ -21,8 +23,8 @@ Files
 * _`PaleoEng.gf`_: English concrete syntax
 * _`PaleoSpa.gf`_: Spanish concrete syntax
 * _`facts.db`_: Example database of paleontological facts
-* _`REPORT.md`_: This document
-* _`REPORT.html`_: HTML version of this document
+* _`REPORT.md`_: This document in markdown version
+* _`REPORT.html`_: This document in HTML version
 
 Requirements
 ------------
@@ -155,13 +157,15 @@ identify three main components in our facts:
    (such as a noun with an adjective, for example _modern bony fishes_)
 3. The time when the event happened.
 
-The Abstract syntax also allows two shapes for the sentences as NOT explained above
-in the previous section.  It is a matter of argument whether the topic/focus
+The Abstract syntax allows for two shapes of sentences. The two forms correspond
+to a single fact, but one uses the group as topic (and time as focus) and the
+other one switches the roles. It is a matter of argument whether the topic/focus
 division of natural language should belong to concrete or abstract syntax, but
 we choose the latter since for this coursework it makes it easier to generate
-the random sentences. It can also be argued that the distinction is actually
-semantic, though in our discussion of plain facts for the quiz it is not really
-relevant.
+the random sentences. It could also be argued that the distinction is actually
+semantic, but in our discussion of plain statements for the quiz, this is not really
+relevant, and in fact introduces a small second level of abstraction in the fact
+database.
 
 The actions and groups don't present further complexity, apart from some actions
 (events) being actually functions that can take other elements as arguments. To
@@ -176,11 +180,77 @@ the end of, have to also be taken into account. Not every category can be part
 of an interval, and some of them cannot stand alone either. The end result can
 be seen near the top of the abstract grammar.
 
-Limitations
------------
-- common sense
-- numbers
-- spanish contractions, punctuation
+### Concrete grammars
+
+The concrete grammars are very simple, expressing the abstract one as actual
+string tokens, and relating the different components via concatenation. Both for
+Spanish and English, they make use of a parameter `TimePosition` which expresses
+whether the topic of the sentence is the time or the group of the event. This
+parameter is necessary to account for different ways of realizing the different
+components of the sentence, beyond simple word order permutation.
+
+All Actions/events have this distinction, since the focalization of the time
+requires a specific construction more complex than passivization. On the other
+hand, how the different times are realized also depends on their position in the
+sentence, since when in focus they are adverbial complements and when in topic
+they become nominal groups. The clades (`Group`s in the grammar) don't change
+their form, so they don't require the parameter.
+
+Conclusion
+----------
+Even in a rather limited setting and with a small set of possibilities, this
+coursework shows that the multilingual architecture of GF is very fit for a
+teaching environment, where natural language can be translated both to other
+languages (for aiding international students, for example) and to neutral
+semantic forms that can be stored and manipulated. This manipulation allows for
+the very simple creation of exam-like tests by the computer, or maybe other more
+sophisticated studying aids.
+
+The concrete syntax linearization into different languages hints at the
+possibility of tailoring exam questions or teaching materials to the linguistic
+background of the students.
+
+Limitations and further improvement
+-----------------------------------
+A first limitation comes in the actual appropriateness of the random questions
+generated. While usually good enough, it is not rare that the system will
+generate options that are easily ruled out by common sense, or even absurd. For
+example, it is not uncommon to have an option generated where a group is said to
+evolve from a more modern one, or to have impossible orderings of geological
+periods in an interval. This is because the random generation used only takes
+into account linguistic appropriateness, not logical one. For that, a different
+logic should be written into the abstract syntax, or even an external "brain" used.
+
+More specific and solvable limitations come with concrete syntax. On one hand,
+it would be useful to add a way of expressing times which could use numbers. For
+example, a well-known date is that Dinosaurs became extinct 65 million years
+ago. A way of solving this would just be adding some Abstract dates, which would
+just happen to be expressed in numbers. However, this is what geological period
+names are for, and it would not allow the kind of expressiveness that numbers
+give.
+
+Another very obvious limitation is concerned with punctuation, which dictates
+that the first letter in a sentence be upper case, and contractions in the
+Spanish concrete syntax. In Spanish, the bigrams _a el_ and _de el_ have to be
+contracted into _al_ and _del_. Failing to do this actually makes the sentence
+incorrect, even if understandable, and the Paleontological Quiz grammar is
+unable to do so. With further study of the GF resources and book this could
+probably be solved.
+
+Finally, the actual implementation of the quiz could be improved substantially.
+Adding a graphical interface, or one more permissive with the user, would be
+good additions. On top of that, a native implementation in maybe Haskell, C or
+Javascript, which could also use the GF libraries for those languages, would
+definetely improve on the current glue of scripting bash + invocations to the GF
+shell.
+
+
+---
+
+Coursework for Advanced Issues in LCT/Multilingual Computing  
+HLST master, LCT Programme, University of Malta  
+Antonio F. G. Sevilla <antonio@garciasevilla.com>  
+13 July 2015
 
 <meta charset="UTF-8"></meta>
 <link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
