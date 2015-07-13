@@ -1,9 +1,9 @@
 MULTILINGUAL PALEONTOLOGICAL QUIZ
 ==================================
 
-Coursework for Advanced Issues in LCT/Multilingual Computing
-HLST master, LCT Programme, University of Malta
-Antonio F. G. Sevilla <antonio@garciasevilla.com>
+Coursework for Advanced Issues in LCT/Multilingual Computing  
+HLST master, LCT Programme, University of Malta  
+Antonio F. G. Sevilla <antonio@garciasevilla.com>  
 13 July 2015
 
 About
@@ -16,12 +16,13 @@ categories).
 
 Files
 -----
-* _paleo.sh_: Shell script, main program
-* _Paleo.gf_: Abstract syntax for a paleontology domain
-* _PaleoEng.gf_: English concrete syntax
-* _PaleoSpa.gf_: Spanish concrete syntax
-* _facts.db_: Example database of paleontological facts
-* _REPORT.md_: This document
+* _`paleo.sh`_: Shell script, main program
+* _`Paleo.gf`_: Abstract syntax for a paleontology domain
+* _`PaleoEng.gf`_: English concrete syntax
+* _`PaleoSpa.gf`_: Spanish concrete syntax
+* _`facts.db`_: Example database of paleontological facts
+* _`REPORT.md`_: This document
+* _`REPORT.html`_: HTML version of this document
 
 Requirements
 ------------
@@ -48,11 +49,29 @@ commands:
 
 Expert input
 ------------
+The expert can add paleontological facts to the database via the `add` command.
+This command takes as arguments the natural language fact, either in Spanish or
+English.
+
+It then gives the sentence for GF to parse and try to build an abstract syntax
+tree. If this process succeeds, the AST is then stored (in a slightly different
+format) in the fact database for later perusal.
+
+For example:
+
+    > add the early amniotes diversified during the Permian
+    OK
+    > add los dinosaurios se extinguieron a el final de el Cretácico
+    OK
+    > add los dinosaurios se extinguieron hace 65 millones de años
+    ERROR: sentence not understood
+    > 
 
 Quizzing
 --------
 
 An example:
+
     > quiz
     Choose the correct option:
     1) the early amniotes diversified during the Permian
@@ -84,7 +103,7 @@ An example:
     3) the end of the Cretaceous witnessed the extinction of modern bony fishes
     4) the end of the Cretaceous witnessed the extinction of Amphibians
     : 2
-        Choose the correct option:
+    Choose the correct option:
     1) modern bony fishes appeared at the Cambrian
     2) modern bony fishes appeared during the Silurian
     3) modern bony fishes appeared from the end of the Jurassic to the beginning of the Quaternary
@@ -93,9 +112,8 @@ An example:
     points: 5/6
     >
 
-Abstract Grammar
-----------------
+Paleontology Grammar
+--------------------
 
 Caveats
 -------
-
