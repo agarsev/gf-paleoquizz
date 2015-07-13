@@ -5,7 +5,7 @@ flags startcat = S;
 cat
     S;
 
-    Time; TimePoint; Period;
+    Time; TimePoint; TimeBound; Period;
     Group;
     Action;
 
@@ -17,9 +17,11 @@ fun
     -- Times
     During: Period -> Time;
     At: TimePoint -> Time;
-    Interval: TimePoint -> TimePoint -> Time;
+    Interval: TimeBound -> TimeBound -> Time;
     Start: Period -> TimePoint;
     End: Period -> TimePoint;
+    UpgradeP: Period -> TimeBound;
+    UpgradeT: TimePoint -> TimeBound;
 
     Precambrian, Cambrian, Ordovician, Silurian, Devonian, Carboniferous, Permian: Period;
     Triassic, Jurassic, Cretaceous, Paleocene, Eocene, Oligocene, Miocene, Pliocene, Quaternary : Period;

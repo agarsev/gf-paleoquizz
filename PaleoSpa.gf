@@ -4,7 +4,7 @@ lincat
     S = Str;
 
     Time = TimePosition => Str;
-    TimePoint, Period = Str;
+    TimePoint, TimeBound, Period = Str;
     Group = Str;
     Action = TimePosition => Str;
 
@@ -28,6 +28,8 @@ lin
     };
     Start period = "el comienzo de" ++ period;
     End period = "el final de" ++ period;
+    UpgradeP p = p;
+    UpgradeT t = t;
 
     Precambrian = "el Precámbrico";
     Cambrian = "el Cámbrico";
