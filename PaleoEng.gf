@@ -26,7 +26,7 @@ lin
         Topic => "the period from" ++ beg ++ "to" ++ end;
         Focus => "from" ++ beg ++ "to" ++ end
     };
-    Start period = "the beggining of" ++ period;
+    Start period = "the beginning of" ++ period;
     End period = "the end of" ++ period;
 
     Precambrian = "the Precambrian";
@@ -58,7 +58,7 @@ lin
     Brachiopods = "Brachiopods";
     Fishes = "Fishes";
 
-    EarlyAmniotes = "early amniotes";
+    EarlyAmniotes = "the early amniotes";
     PlacentalMammals = "placental mammals";
     ModernBonyFishes = "modern bony fishes";
 
@@ -79,9 +79,13 @@ lin
         Topic => "witnessed the extinction of";
         Focus => "became extinct"
     };
-    Diversify = table {
+    Radiate = table {
         Topic => "witnessed a significant adaptive radiation of";
         Focus => "experienced a significant adaptive radiation"
+    };
+    Diversify = table {
+        Topic => "witnessed the diversification of";
+        Focus => "diversified"
     };
 
 param

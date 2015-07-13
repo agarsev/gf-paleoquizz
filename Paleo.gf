@@ -31,6 +31,6 @@ fun
 
     -- Actions
     EvolveFrom: Group -> Action;
-    Appear, BeInTheRecord, BecomeExtinct, Diversify: Action;
+    Appear, BeInTheRecord, BecomeExtinct, Radiate, Diversify: Action;
 
 }

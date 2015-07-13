@@ -8,7 +8,7 @@ The Permian witnessed the diversification of the early amniotes
 #The Triassic is also known as the Age of the Reptiles
 The first placental mammals appeared at the beginning of the Cretaceous period
 #The Rugose are an extinct order of corals
-Mammals experienced a significant adaptive radiation about 500 million years
+#Mammals experienced a significant adaptive radiation about 500 million years
 Brachiopods are known in the fossil record from the early Cambrian to the Recent
 #Leaves are the most commonly preserved plant remains
 Modern bony fishes appeared in the Silurian

@@ -48,7 +48,7 @@ lin
 
     -- Groups
     Reptiles = "los reptiles";
-    Amphibians = "los amfibios";
+    Amphibians = "los anfibios";
     Mollusks = "los moluscos";
     Crinoids = "los crinoides";
     Bryozoans = "los briozoos";
@@ -79,9 +79,13 @@ lin
         Topic => "presenció la extinción de";
         Focus => "se extinguieron"
     };
-    Diversify = table {
+    Radiate = table {
         Topic => "presenció una significativa radiación adaptativa";
         Focus => "experimentaron una significativa radiación adaptativa"
+    };
+    Diversify = table {
+        Topic => "presenció la diversificación de";
+        Focus => "se diversificaron"
     };
 
 param
