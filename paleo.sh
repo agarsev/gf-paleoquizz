@@ -42,15 +42,19 @@ add_random_answer() {
     gf "gr $2 $3 $4 $5 | lin -lang=$1"
     get_output
     flush
-    answers=$answers$'\n'$output
+    if [[ -z $answers ]]; then
+        answers=$output
+    else
+        answers=$answers$'\n'$output
+    fi
 }
 
-set_correct_answer() {
+add_correct_answer() {
     gf "lin -lang=$1 $2 $3 $4 $5"
     get_output
     flush
     correct=$output
-    answers=$correct
+    answers=$answers$'\n'$output
 }
 
 # START
@@ -112,16 +116,23 @@ while read line; do
             total=$((total+1))
             echo $prompt
             IFS=';' sem=($action)
+            answers=''
             if [[ $(( $RANDOM % 2 )) == 1 ]]; then
-                set_correct_answer $lang TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
                 add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+                add_random_answer $lang TimeFocus ${sem[1]} ${sem[0]} ?
+                answers=$(sort -u <<<$answers | sort -R | head -3)
+                add_correct_answer $lang TimeFocus ${sem[1]} ${sem[0]} ${sem[2]}
             else
-                set_correct_answer $lang TimeTopic ${sem[2]} ${sem[0]} ${sem[1]}
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
                 add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+                add_random_answer $lang TimeTopic ${sem[2]} ${sem[0]} ?
+                answers=$(sort -u <<<$answers | sort -R | head -3)
+                add_correct_answer $lang TimeTopic ${sem[2]} ${sem[0]} ${sem[1]}
             fi
             answers=$(sort -R <<<$answers)
             echo $answers | paste <(echo -n $'1)\n2)\n3)\n4)') - -d' '
