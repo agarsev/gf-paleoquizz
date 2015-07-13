@@ -29,12 +29,21 @@ lin
     Start period = "comienzos de" ++ period;
     End period = "finales de" ++ period;
 
+    Precambrian = "el Precámbrico";
+    Cambrian = "el Cámbrico";
+    Ordovician = "el Ordovícico";
+    Silurian = "el Silúrico";
+    Devonian = "el Devónico";
     Carboniferous = "el Carbonífero";
-    Cretaceous = "el Cretácico";
     Permian = "el Pérmico";
     Triassic = "el Triásico";
-    Cambrian = "el Cámbrico";
-    Silurian = "el Silúrico";
+    Jurassic = "el Jurásico";
+    Cretaceous = "el Cretácico";
+    Paleocene = "el Paleoceno";
+    Eocene = "el Eoceno";
+    Oligocene = "el Oligoceno";
+    Miocene = "el Mioceno";
+    Pliocene = "el Plioceno";
     Quaternary = "el Cuaternario";
 
     -- Groups

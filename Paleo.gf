@@ -21,7 +21,8 @@ fun
     Start: Period -> TimePoint;
     End: Period -> TimePoint;
 
-    Carboniferous, Cretaceous, Permian, Triassic, Cambrian, Silurian, Quaternary : Period;
+    Precambrian, Cambrian, Ordovician, Silurian, Devonian, Carboniferous, Permian: Period;
+    Triassic, Jurassic, Cretaceous, Paleocene, Eocene, Oligocene, Miocene, Pliocene, Quaternary : Period;
 
     -- Groups
     Reptiles, Dinosaurs, Rugose, Mammals : Group;

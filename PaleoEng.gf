@@ -29,12 +29,21 @@ lin
     Start period = "the beggining of" ++ period;
     End period = "the end of" ++ period;
 
+    Precambrian = "the Precambrian";
+    Cambrian = "the Cambrian";
+    Ordovician = "the Ordovician";
+    Silurian = "the Silurian";
+    Devonian = "the Devonian";
     Carboniferous = "the Carboniferous";
-    Cretaceous = "the Cretaceous";
     Permian = "the Permian";
     Triassic = "the Triassic";
-    Cambrian = "the Cambrian";
-    Silurian = "the Silurian";
+    Jurassic = "the Jurassic";
+    Cretaceous = "the Cretaceous";
+    Paleocene = "the Paleocene";
+    Eocene = "the Eocene";
+    Oligocene = "the Oligocene";
+    Miocene = "the Miocene";
+    Pliocene = "the Pliocene";
     Quaternary = "the Quaternary";
 
     -- Groups
